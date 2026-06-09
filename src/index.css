@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display&family=DM+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+/* ── Theme ──────────────────────────────────────────────────────── */
+
+@theme {
+  --font-sans: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'DM Serif Display', Georgia, serif;
+  --font-mono: 'DM Mono', ui-monospace, SFMono-Regular, Consolas, monospace;
+
+  --animate-page-enter: page-enter 0.3s cubic-bezier(0.22, 0.68, 0, 1.1) both;
+
+  @keyframes page-enter {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* ── Base ───────────────────────────────────────────────────────── */
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--color-slate-900);
+  background: var(--color-slate-100);
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* ── Custom Scrollbar ──────────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-slate-300);
+  border-radius: 9999px;
+}
+
+/* ── Login Animations ──────────────────────────────────────────── */
+
+@keyframes login-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(12px, -18px) scale(1.04); }
+  66% { transform: translate(-8px, 10px) scale(0.97); }
+}
+
+@keyframes login-float-slow {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(20px, -14px) scale(1.06); }
+}
+
+@keyframes login-float-reverse {
+  0%, 100% { transform: translate(0, 0); }
+  40% { transform: translate(-15px, 12px); }
+  80% { transform: translate(10px, -8px); }
+}
+
+.login-float { animation: login-float 14s ease-in-out infinite; }
+.login-float-slow { animation: login-float-slow 20s ease-in-out infinite; }
+.login-float-reverse { animation: login-float-reverse 17s ease-in-out infinite; }
+
+/* Subtle dot grid for hero panel */
+.login-dot-grid {
+  background-image: radial-gradient(circle, rgba(255,255,255,0.5) 1px, transparent 1px);
+  background-size: 24px 24px;
+}

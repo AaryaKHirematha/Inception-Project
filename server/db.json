@@ -1,0 +1,117 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Admin User",
+      "email": "admin@example.com",
+      "password": "password",
+      "role": "admin",
+      "caseId": null,
+      "avatar": "A"
+    },
+    {
+      "id": 2,
+      "name": "Test",
+      "email": "test@test.com",
+      "password": "password",
+      "role": "public",
+      "caseId": null,
+      "avatar": "T"
+    }
+  ],
+  "evidence": [
+    {
+      "id": 1,
+      "caseId": "CASE-2023-001",
+      "fileName": "Contract_Agreement.pdf",
+      "fileSize": "2.4 MB",
+      "hash": "8f4e2b...1a9c",
+      "uploadDate": "2023-10-24T10:30:00Z",
+      "uploadedBy": "J. Smith",
+      "status": "Verified"
+    },
+    {
+      "id": 2,
+      "caseId": "CASE-2023-042",
+      "fileName": "Crime_Scene_Photo_01.jpg",
+      "fileSize": "4.1 MB",
+      "hash": "3d9a1f...7b2e",
+      "uploadDate": "2023-10-25T14:15:00Z",
+      "uploadedBy": "Detective R. Boyle",
+      "status": "Pending"
+    },
+    {
+      "id": 3,
+      "caseId": "CASE-2023-001",
+      "fileName": "Witness_Testimony.docx",
+      "fileSize": "1.1 MB",
+      "hash": "5c7d8e...9f0a",
+      "uploadDate": "2023-10-26T09:45:00Z",
+      "uploadedBy": "A. Davis",
+      "status": "Verified"
+    }
+  ],
+  "logs": [
+    {
+      "id": 1,
+      "action": "UPLOAD",
+      "user": "J. Smith",
+      "details": "Uploaded Contract_Agreement.pdf",
+      "caseId": "CASE-2023-001",
+      "timestamp": "2023-10-24T10:30:00Z"
+    },
+    {
+      "id": 2,
+      "action": "VERIFY",
+      "user": "Judge H. Stone",
+      "details": "Verified hash 8f4e2b...1a9c against blockchain",
+      "caseId": "CASE-2023-001",
+      "timestamp": "2023-10-24T11:05:00Z"
+    },
+    {
+      "id": 3,
+      "action": "UPLOAD",
+      "user": "Detective R. Boyle",
+      "details": "Uploaded Crime_Scene_Photo_01.jpg",
+      "caseId": "CASE-2023-042",
+      "timestamp": "2023-10-25T14:15:00Z"
+    },
+    {
+      "id": 4,
+      "action": "ACCESS",
+      "user": "Defense Atty L. Morgan",
+      "details": "Viewed Crime_Scene_Photo_01.jpg",
+      "caseId": "CASE-2023-042",
+      "timestamp": "2023-10-25T16:20:00Z"
+    },
+    {
+      "id": 5,
+      "action": "UPLOAD",
+      "user": "A. Davis",
+      "details": "Uploaded Witness_Testimony.docx",
+      "caseId": "CASE-2023-001",
+      "timestamp": "2023-10-26T09:45:00Z"
+    },
+    {
+      "id": 6,
+      "action": "VERIFY",
+      "user": "Prosecutor M. Ross",
+      "details": "Verified hash 5c7d8e...9f0a against blockchain",
+      "caseId": "CASE-2023-001",
+      "timestamp": "2023-10-26T10:15:00Z"
+    },
+    {
+      "id": 7,
+      "action": "ACCESS",
+      "user": "Public Viewer 8492",
+      "details": "Viewed public record for CASE-2023-001",
+      "caseId": "CASE-2023-001",
+      "timestamp": "2023-10-26T11:30:00Z"
+    }
+  ],
+  "counters": {
+    "users": 2,
+    "evidence": 3,
+    "logs": 7
+  }
+}
