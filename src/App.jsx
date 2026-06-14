@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import Login     from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Upload    from "./pages/Upload";
@@ -58,6 +59,7 @@ export default function App() {
   return (
     <GlobalProvider>
       <AppShell />
+      <SpeedInsights />
     </GlobalProvider>
   );
 }
