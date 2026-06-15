@@ -1,22 +1,8 @@
 import express from "express";
-import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
 import { generateToken } from "../middleware/auth.js";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const dbPath = path.join(__dirname, "../db.json");
+import { readDb, writeDb } from "../db.js";
 
 const router = express.Router();
-
-function readDb() {
-  return JSON.parse(fs.readFileSync(dbPath, "utf-8"));
-}
-
-function writeDb(data) {
-  fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
-}
 
 router.post("/login", (req, res) => {
   const { email, password, role } = req.body;

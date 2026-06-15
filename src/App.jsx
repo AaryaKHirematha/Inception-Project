@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import Login     from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Upload    from "./pages/Upload";
@@ -7,6 +8,7 @@ import Logs      from "./pages/Logs";
 import Sidebar   from "./components/Sidebar";
 import Header    from "./components/Header";
 import GlobalProvider, { useGlobal } from "./context/GlobalContext";
+import { ToastProvider } from "./context/ToastContext";
 
 /* ── Inner App (has access to context) ──────────────────────────── */
 
@@ -23,6 +25,12 @@ function AppShell() {
     logs:      <Logs      key="l" />,
   };
 
+  const pageVariants = {
+    initial: { opacity: 0, y: 15 },
+    animate: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: -15 },
+  };
+
   return (
     <div className="flex min-h-screen bg-slate-100">
       <Sidebar />
@@ -31,9 +39,19 @@ function AppShell() {
         <Header />
 
         <main className="flex-1 p-8 overflow-y-auto">
-          <div className="max-w-[1200px] mx-auto animate-page-enter">
-            {pages[activePage] || pages.dashboard}
-          </div>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activePage}
+              variants={pageVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+              className="max-w-[1200px] mx-auto"
+            >
+              {pages[activePage] || pages.dashboard}
+            </motion.div>
+          </AnimatePresence>
         </main>
 
         <footer className="px-8 py-3.5 border-t border-slate-200/50 bg-white/50">
@@ -57,7 +75,9 @@ function AppShell() {
 export default function App() {
   return (
     <GlobalProvider>
-      <AppShell />
+      <ToastProvider>
+        <AppShell />
+      </ToastProvider>
     </GlobalProvider>
   );
 }
