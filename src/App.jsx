@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import Login     from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Upload    from "./pages/Upload";
@@ -77,6 +78,7 @@ export default function App() {
     <GlobalProvider>
       <ToastProvider>
         <AppShell />
+        <SpeedInsights />
       </ToastProvider>
     </GlobalProvider>
   );
